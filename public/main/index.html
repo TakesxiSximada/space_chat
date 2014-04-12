@@ -10,11 +10,13 @@
  
         <script src="./lib/tmlib.js"></script>
         <script src="./js/WordDebli.js"></script>
+        <script src="./js/BackGround.js"></script>
         <script>
 
 
             var ASSETS = {
-                earth: "img/earth.png",
+                earth: "img/earth_anime.gif",
+                star: "img/background-test.png",
             };
 /*
             
@@ -98,8 +100,12 @@
     
                     init: function() {
                         this.superInit();
-                        var planet = tm.display.Sprite("earth", 100, 100).addChildTo(this);
 
+                        var back1 = new BackGround("star",-2.5,this);
+                        var back2 = new BackGround("star",2.5,this);
+                        var back3 = new BackGround("star",5,this);
+
+                        var planet = tm.display.Sprite("earth", 100, 100).addChildTo(this);
 
                         planet.setPosition(230, 180);
 
@@ -111,6 +117,9 @@
                         planet.deblis = new Array();
 
                         planet.update = function() {
+                            back1.update();
+                            back2.update();
+                            back3.update();
 
                             var key = app.keyboard;
                             //  デブリを追加する
