@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+ 
+        <title>start tmlib.js</title>
+ 
+        <script src="./lib/tmlib.js"></script>
+        <script src="./js/WordDebli.js"></script>
+        <script>
+
+
+            var ASSETS = {
+                earth: "img/earth.png",
+            };
+/*
+            
+*/
+            var app;
+            // TODO: ここにコードを書いていく
+            tm.main(function() {
+                // アプリケーションクラスを生成
+                app = tm.display.CanvasApp("#world");
+                app.resize(600, 600);
+
+
+                var loadingScene = tm.app.LoadingScene({
+                    assets: ASSETS,
+                    nextScene: MainScene,
+
+                });
+                app.replaceScene(loadingScene);
+                
+
+                /*
+                //  惑星。この周りにdebliが出る
+                //tm.graphics.TextureManager.add("")
+
+                var planet = tm.display.Label("地球").addChildTo(app.currentScene);
+                //tm.asset.Manager.set("earth", "earth.png")
+                //var planet = tm.display.Sprite("earth").addChildTo(app.currentScene);
+
+
+                planet.setPosition(300, 300);
+
+                planet.deblis = new Array();
+
+                planet.update = function() {
+
+                    var key = app.keyboard;
+                    //  デブリを追加する
+                    if (key.getKey("w")) {
+                        var debli = new WordDebli("ワロタ");
+                        debli.label.addChildTo(this);
+                        this.deblis.push(debli);
+                    }
+
+                    //  星にあるdebliを動作させる
+                    for (var i = 0; i < this.deblis.length; i++) {
+                        this.deblis[i].update();
+                    }
+                };
+                
+                // スターを生成してシーンに追加
+                //var star = tm.display.StarShape().addChildTo(app.currentScene);
+                /*
+                var star = tm.display.Label("ワロタ").addChildTo(app.currentScene);
+
+                // 位置をセット
+                star.setPosition(150, 75);
+                
+                var time = 6.28;
+                var distance = 100;
+                // 更新処理を登録
+                star.update = function() {
+                    
+
+                    time += 0.3;
+                    
+                    this.x = Math.cos(time) * distance + 200;
+                    this.y = Math.sin(time) * distance + 200;
+
+                };
+                */
+                
+                
+
+
+                // 実行
+            app.run();
+            });
+            
+            tm.define("MainScene", {
+                    superClass: "tm.app.Scene",
+    
+                    init: function() {
+                        this.superInit();
+                        var planet = tm.display.Sprite("earth", 100, 100).addChildTo(this);
+
+
+                        planet.setPosition(230, 180);
+
+                        //  射出位置
+                        planet.emitPlace = tm.display.Label('').addChildTo(planet);
+                        planet.emitPlace.setPosition(-40, 0);
+                        
+
+                        planet.deblis = new Array();
+
+                        planet.update = function() {
+
+                            var key = app.keyboard;
+                            //  デブリを追加する
+                            if (key.getKey("w")) {
+                                var debli = new WordDebli("ワロタ");
+                                debli.label.addChildTo(planet.emitPlace);
+                                this.deblis.push(debli);
+                            }
+
+                            //  星にあるdebliを動作させる
+                            for (var i = 0; i < this.deblis.length; i++) {
+                                this.deblis[i].update();
+                            }
+                
+                        };
+                },
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="world"></canvas>
+    </body>
+</html>
