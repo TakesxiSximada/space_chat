@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      object_type: "オブジェクトタイプ"
+    attributes:
+      id: "ID"
+      code: "コード"
+      name: "オブジェクト名"
+      created_at: "新規作成日時"

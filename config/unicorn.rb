@@ -6,6 +6,9 @@ preload_app true #後述
 # # listen /path/to/rails/tmp/unicorn.sock
 listen 3000
 
+stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
+stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
+
 before_fork do |server, worker|
   old_pid = "#{ server.config[:pid] }.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
