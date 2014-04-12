@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'main/index'
 
   resources :debris
+  get 'debri/get' => 'debris#get'
 
   resources :object_types
   get '/' => 'main#index'

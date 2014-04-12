@@ -43,4 +43,4 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'unicorn'
-
+gem 'quiet_assets'

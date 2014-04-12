@@ -7,6 +7,12 @@ class DebrisController < ApplicationController
     @debris = Debri.all
   end
 
+  def get
+    @debris = DebriSearch.new(params).execute
+    logger.debug @debris 
+    render json: @debris
+  end
+
   # GET /debris/1
   # GET /debris/1.json
   def show
