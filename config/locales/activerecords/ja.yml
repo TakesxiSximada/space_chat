@@ -2,8 +2,20 @@ ja:
   activerecord:
     models:
       object_type: "オブジェクトタイプ"
+      debri: "デブリ"
     attributes:
-      id: "ID"
-      code: "コード"
-      name: "オブジェクト名"
-      created_at: "新規作成日時"
+      object_type:
+        id: "ID"
+        code: "コード"
+        name: "オブジェクト名"
+        created_at: "新規作成日時"
+      debri:
+        id: "ID"
+        word: "言葉"
+        size: "サイズ"
+        height: "高さ"
+        angle: "角度"
+        object_type_id: "オブジェクト・タイプ"
+        object_type: "オブジェクト・タイプ"
+        deleted: "削除済み"
+        created_at: "新規作成日時"

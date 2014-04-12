@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412064631) do
+ActiveRecord::Schema.define(version: 20140412082208) do
+
+  create_table "debris", force: true do |t|
+    t.string   "word"
+    t.integer  "size"
+    t.integer  "height"
+    t.float    "angle"
+    t.integer  "object_type_id"
+    t.boolean  "deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "debris", ["object_type_id"], name: "index_debris_on_object_type_id", using: :btree
 
   create_table "object_types", force: true do |t|
     t.string   "code"

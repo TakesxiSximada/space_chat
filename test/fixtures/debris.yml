@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyString
+  size: 1
+  height: 1
+  angle: 1.5
+  object_type_id: 
+  deleted: false
+
+two:
+  word: MyString
+  size: 1
+  height: 1
+  angle: 1.5
+  object_type_id: 
+  deleted: false

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :debris
+
   resources :object_types
   get '/' => 'object_types#index'
 

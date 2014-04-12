@@ -1,0 +1,31 @@
+<%- model_class = Debri -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:word) %>:</strong></dt>
+  <dd><%= @debri.word %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:size) %>:</strong></dt>
+  <dd><%= @debri.size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:height) %>:</strong></dt>
+  <dd><%= @debri.height %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:angle) %>:</strong></dt>
+  <dd><%= @debri.angle %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:object_type_id) %>:</strong></dt>
+  <dd><%= @debri.object_type_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:deleted) %>:</strong></dt>
+  <dd><%= @debri.deleted %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              debris_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_debri_path(@debri), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              debri_path(@debri),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
