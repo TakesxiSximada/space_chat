@@ -53,7 +53,7 @@ WordDebli.prototype = {
   
   collision: function () {
     console.log("collision");
-  }
+  },
 
   create: function (callback) {
     var saveObject = {
@@ -72,6 +72,6 @@ WordDebli.prototype = {
       success: callback,
       dataType: 'json'
     });
-  }
+  },
 
 }
