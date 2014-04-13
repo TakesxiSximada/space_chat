@@ -1,5 +1,6 @@
 ja:
   shared:
+    brand: "SpaceChat"
     navigation:
       object_type: "オブジェクト"
       debri: "デブリ"

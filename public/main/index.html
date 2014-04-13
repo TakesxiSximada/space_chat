@@ -8,8 +8,9 @@
  
         <title>start tmlib.js</title>
  
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
         <script src="./lib/tmlib.js"></script>
-        <script src="./js/WordDebli.js"></script>
+        <script src="/assets/WordDebli.js"></script>
         <script src="./js/BackGround.js"></script>
         <script>
 
@@ -125,6 +126,9 @@
                             //  デブリを追加する
                             if (key.getKey("w")) {
                                 var debli = new WordDebli("ワロタ");
+                                debli.create(function (arg1, arg2, arg3) {
+                                  console.log(arg1, arg2, arg3);
+                                });
                                 debli.label.addChildTo(planet.emitPlace);
                                 this.deblis.push(debli);
                             }
