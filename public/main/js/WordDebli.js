@@ -19,7 +19,7 @@ function WordDebli (word) {
 }
 
 WordDebli.prototype = {
-	
+		
 	update: function() {
 		this.rad += this.speed;
 		//	maxDistanceまでdistanceを上げる
