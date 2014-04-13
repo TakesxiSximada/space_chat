@@ -24,9 +24,12 @@
             var app;
             // TODO: ここにコードを書いていく
             tm.main(function() {
+                var sW,sH;
+                sW = window.innerWidth;
+                sH = window.innerHeight;
                 // アプリケーションクラスを生成
                 app = tm.display.CanvasApp("#world");
-                app.resize(600, 600);
+                app.resize(sW, sH);
 
 
                 var loadingScene = tm.app.LoadingScene({
@@ -102,11 +105,12 @@
                         this.superInit();
 
                         var back1 = new BackGround("star",-2.5,this);
-                        var back2 = new BackGround("star",2.5,this);
-                        var back3 = new BackGround("star",5,this);
 
                         var planet = tm.display.Sprite("earth", 100, 100).addChildTo(this);
 
+                        var back2 = new BackGround("star",2.5,this);
+                        var back3 = new BackGround("star",5,this);
+                        
                         planet.setPosition(230, 180);
 
                         //  射出位置
