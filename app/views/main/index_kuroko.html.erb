@@ -1,0 +1,145 @@
+        <script>
+            var ASSETS = {
+                earth: "/images/earth_anime.gif",
+                star: "/images/background-test.png",
+            };
+/*
+            
+*/
+            var app;
+            // TODO: ここにコードを書いていく
+            tm.main(function() {
+                var sW,sH;
+                sW = window.innerWidth;
+                sH = window.innerHeight;
+                // アプリケーションクラスを生成
+                app = tm.display.CanvasApp("#world");
+                app.resize(sW, sH);
+
+
+                var loadingScene = tm.app.LoadingScene({
+                    assets: ASSETS,
+                    nextScene: MainScene,
+
+                });
+                app.replaceScene(loadingScene);
+                
+
+                /*
+                //  惑星。この周りにdebliが出る
+                //tm.graphics.TextureManager.add("")
+
+                var planet = tm.display.Label("地球").addChildTo(app.currentScene);
+                //tm.asset.Manager.set("earth", "earth.png")
+                //var planet = tm.display.Sprite("earth").addChildTo(app.currentScene);
+
+
+                planet.setPosition(300, 300);
+
+                planet.deblis = new Array();
+
+                planet.update = function() {
+
+                    var key = app.keyboard;
+                    //  デブリを追加する
+                    if (key.getKey("w")) {
+                        var debli = new WordDebli("ワロタ");
+                        debli.label.addChildTo(this);
+                        this.deblis.push(debli);
+                    }
+
+                    //  星にあるdebliを動作させる
+                    for (var i = 0; i < this.deblis.length; i++) {
+                        this.deblis[i].update();
+                    }
+                };
+                
+                // スターを生成してシーンに追加
+                //var star = tm.display.StarShape().addChildTo(app.currentScene);
+                /*
+                var star = tm.display.Label("ワロタ").addChildTo(app.currentScene);
+
+                // 位置をセット
+                star.setPosition(150, 75);
+                
+                var time = 6.28;
+                var distance = 100;
+                // 更新処理を登録
+                star.update = function() {
+                    
+
+                    time += 0.3;
+                    
+                    this.x = Math.cos(time) * distance + 200;
+                    this.y = Math.sin(time) * distance + 200;
+
+                };
+                */
+                
+                
+
+
+                // 実行
+            app.run();
+            });
+            
+            tm.define("MainScene", {
+                    superClass: "tm.app.Scene",
+    
+                    init: function() {
+                        this.superInit();
+
+                        var back1 = new BackGround("star",-2.5,this);
+
+                        var planet = tm.display.Sprite("earth", 100, 100).addChildTo(this);
+
+                        var back2 = new BackGround("star",2.5,this);
+                        var back3 = new BackGround("star",5,this);
+                        
+                        planet.setPosition(230, 180);
+
+                        //  射出位置
+                        planet.emitPlace = tm.display.Label('').addChildTo(planet);
+                        planet.emitPlace.setPosition(-40, 0);
+                        
+
+                        planet.deblis = new Array();
+
+                        planet.update = function() {
+                            back1.update();
+                            back2.update();
+                            back3.update();
+
+                            var key = app.keyboard;
+                            //  デブリを追加する
+                            if (key.getKey("w")) {
+                                var debli = new WordDebli("ワロタ");
+                                debli.create(function (arg1, arg2, arg3) {
+                                });
+                                debli.label.addChildTo(planet.emitPlace);
+                                this.deblis.push(debli);
+                            }
+
+                            //  星にあるdebliを動作させる
+                            for (var i = 0; i < this.deblis.length; i++) {
+                                this.deblis[i].update();
+                                for (var j = i+1; j < this.deblis.length; j++) {
+                                   //  衝突判定をする
+                                   if (this.deblis[i].isCollision(this.deblis[j])) {
+                                      this.deblis[i].collision();
+                                   }
+
+                                }
+
+
+                            }
+                
+                        };
+                },
+            });
+        </script>
+        <canvas id="world"></canvas>
+        <div id="input-wrapper">
+          <input type="text" id="input-word" placeholder="" />
+        </div>
+        <input type="image" src="/images/ui/btn-submit_1.png" />
