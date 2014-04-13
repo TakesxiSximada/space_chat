@@ -1,7 +1,9 @@
         <script>
             var ASSETS = {
                 earth: "/images/earth_anime.gif",
-                star: "/images/background-test.png",
+                starSmall: "/images/star_small.png",
+                starBig: "/images/star_big.png",
+                smoke: "/images/smoke.png",
             };
 /*
             
@@ -89,12 +91,12 @@
                     init: function() {
                         this.superInit();
 
-                        var back1 = new BackGround("star",-2.5,this);
+                        var back1 = new BackGround("starSmall",-2.5,this);
 
                         var planet = tm.display.Sprite("earth", 100, 100).addChildTo(this);
-
-                        var back2 = new BackGround("star",2.5,this);
-                        var back3 = new BackGround("star",5,this);
+                        var bgsmoke = new BackGround("smoke",0,this);
+                        var back2 = new BackGround("starSmall",2.5,this);
+                        var back3 = new BackGround("starBig",5,this);
                         
                         planet.setPosition(230, 180);
 

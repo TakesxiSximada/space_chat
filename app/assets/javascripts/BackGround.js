@@ -2,10 +2,10 @@ function BackGround (bgfilename, mvlength, childlayer) {
 	this.bgfilename = bgfilename;
 	this.mvlength = mvlength;
 	this.childlayer = childlayer;
-	this.imagewidth = 200/2;
-	this.center = {x1:100, x2:300, y:200 };
-    this.back = tm.display.Sprite("star", 200, 200).addChildTo(childlayer);
-    this.back2 = tm.display.Sprite("star", 200, 200).addChildTo(childlayer);
+	this.imagewidth = 1920/2;
+	this.center = {x1:960, x2:-960, y:510 };
+    this.back = tm.display.Sprite("star").addChildTo(childlayer);
+    this.back2 = tm.display.Sprite("star").addChildTo(childlayer);
     this.back.setPosition(this.center.x1,this.center.y);
     this.back2.setPosition(this.center.x2,this.center.y);
     this.WIDTH = window.innerWidth;
