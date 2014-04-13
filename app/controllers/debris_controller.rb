@@ -30,7 +30,17 @@ class DebrisController < ApplicationController
   # POST /debris
   # POST /debris.json
   def create
-    @debri = Debri.new(debri_params)
+    logger.debug params
+    logger.debug params[:word]
+    @debri = Debri.new({
+      :word => params[:word],
+      :size => params[:size],
+      :height => params[:height],
+      :angle => params[:angle],
+      :object_type_id => params[:object_type_id],
+      :deleted => params[:deleted],
+    })
+    logger.debug @params
 
     respond_to do |format|
       if @debri.save

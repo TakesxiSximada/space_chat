@@ -115,7 +115,6 @@
                             if (key.getKey("w")) {
                                 var debli = new WordDebli("ワロタ");
                                 debli.create(function (arg1, arg2, arg3) {
-                                  console.log(arg1, arg2, arg3);
                                 });
                                 debli.label.addChildTo(planet.emitPlace);
                                 this.deblis.push(debli);
@@ -131,3 +130,8 @@
             });
         </script>
         <canvas id="world"></canvas>
+        <div id="input-wrapper">
+          <input type="text" id="input-word" placeholder="" />
+          <input type="image" id="btn-submit"  src="/images/ui/btn-submit_1.png" />
+        </div>
+

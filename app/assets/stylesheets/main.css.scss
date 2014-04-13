@@ -1,3 +1,27 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#input-wrapper {
+  background-image: url('../images/ui/input-box.png');
+  background-size: contain;
+  width: 640px;
+  height: 107px;
+  position: relative;
+  #btn-submit {
+    position: absolute;
+    top: 15px;
+    left: 466px;
+  }
+  #input-word {
+    width: 421px;
+    height: 51px;
+    font-size: 43px;
+    color: red;
+    background-color: transparent;
+    padding-left: 15px;
+    border: 0px;
+    margin: 10px;
+  }
+}
+

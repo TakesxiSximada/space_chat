@@ -41,20 +41,34 @@ WordDebli.prototype = {
 		this.center.y = y;
 	},
 
+  //  衝突判定
+  isCollision: function(debli) {
+    if (Math.pow(this.label.x - debli.label.x, 2) +
+        Math.pow(this.label.y - debli.label.y, 2) >
+         Math.pow(this.size + debli.size, 2)) {
+      return true;
+    }
+    return false;
+  },
+  
+  collision: function () {
+    console.log("collision");
+  }
+
   create: function (callback) {
     var saveObject = {
       angle: this.rad,
-      name: this.word,
+      word: this.word,
       size: this.size,
       height: this.distance,
       deleted: false,
       object_type_id: 1
     };
-    console.log(saveObject);
     $.ajax({
       type: 'POST',
       url: '/debris.json',
       data: saveObject,
+      //data: JSON.stringify(saveObject),
       success: callback,
       dataType: 'json'
     });
