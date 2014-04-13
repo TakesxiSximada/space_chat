@@ -18,3 +18,13 @@ function () {
   });
 }
 );
+
+var ws = new WebSocket("ws://isac-sakai.cloudapp.net:8080");
+ws.onmessage = function(evt) {
+  console.log(evt);
+  $('#output').append(evt.data);
+};
+
+var clicked = function () {
+        ws.send(document.getElementById('hoge').value);
+};
